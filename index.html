@@ -102,7 +102,7 @@ jQuery('#add').click(function() {
         'minTime': jQuery('#accttime').val(),
         'maxTime': jQuery('#accttimemax').val()
     });
-    document.cookie = 'tasks='+JSON.stringify(tasks));
+    document.cookie = 'tasks='+JSON.stringify(tasks);
     refreshView();
 });
 jQuery('#find').click(function() {
@@ -120,7 +120,7 @@ jQuery('.delete').click(function(e) {
     var target = parseInt(e.target.dataset.order);
 
     tasks.splice(target, 1);
-    document.cookie = 'tasks='+JSON.stringify(tasks));
+    document.cookie = 'tasks='+JSON.stringify(tasks);
     refreshView();
 });
 
