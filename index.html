@@ -102,7 +102,7 @@ jQuery('#add').click(function() {
         'minTime': jQuery('#accttime').val(),
         'maxTime': jQuery('#accttimemax').val()
     });
-    storage.setItem('tasks', JSON.stringify(tasks));
+    document.cookie = 'tasks='+JSON.stringify(tasks));
     refreshView();
 });
 jQuery('#find').click(function() {
@@ -120,9 +120,25 @@ jQuery('.delete').click(function(e) {
     var target = parseInt(e.target.dataset.order);
 
     tasks.splice(target, 1);
-    storage.setItem('tasks', JSON.stringify(tasks));
+    document.cookie = 'tasks='+JSON.stringify(tasks));
     refreshView();
 });
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
 </script>
 </footer>
