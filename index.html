@@ -28,7 +28,7 @@
 </script>
 <script type="text/javascript">
 var storage = window.sessionStorage;
-var tasks = JSON.parse(storage.getItem('tasks')) || [];
+var tasks = JSON.parse(getCookie('tasks') || '[]') ;
 var availableTasks = [];
 
 var refreshView = function() {
